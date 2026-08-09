@@ -28,8 +28,8 @@ Optional extras:
 
 | Extra | Adds | Why it's optional |
 |---|---|---|
-| `huggingface` | `sentence-transformers`, `transformers` | Local/free embeddings — heavy (`torch`), so opt-in |
-| `rerank` | `sentence-transformers` | Cross-encoder reranking — same `torch` dependency |
+| `huggingface` | `sentence-transformers`, `transformers` | Local/free embeddings heavy (`torch`), so opt-in |
+| `rerank` | `sentence-transformers` | Cross-encoder reranking same `torch` dependency |
 | `yaml` | `pyyaml` | Lets config files be `.yaml`/`.yml`, not just `.json` |
 | `mlflow` | `mlflow` | Optional tracing on LLM calls, no-ops cleanly if unset |
 | `dev` | `pytest`, `pytest-cov` | Only needed if you're developing `ragbench` itself |
@@ -39,7 +39,7 @@ Optional extras:
 pip install "ragbench[huggingface,rerank]"
 ```
 
-`openai`, `anthropic`, `google-genai`, and `chromadb` are **core** dependencies (not extras) — every retriever except `bm25` needs a vector store, and the point of the tool is comparing providers, so gating them behind extras would defeat the purpose.
+`openai`, `anthropic`, `google-genai`, and `chromadb` are **core** dependencies (not extras), every retriever except `bm25` needs a vector store, and the point of the tool is comparing providers, so gating them behind extras would defeat the purpose.
 
 ---
 
