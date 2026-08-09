@@ -2,7 +2,7 @@
 
 Benchmark chunking and retrieval strategies on your own data: compare **accuracy**, **latency**, and **cost** across every chunker × retriever combination, against real or LLM-generated questions.
 
-**ragbench compare --config examples\scifact_all.json**
+**CLI command:ragbench compare --config examples\scifact_all.json**
 
 <img width="1433" height="252" alt="image" src="https://github.com/user-attachments/assets/c30c1abb-fcb0-4d0c-846e-41854ed58e7f" />
 
