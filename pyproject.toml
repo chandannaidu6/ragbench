@@ -10,7 +10,7 @@ build-backend = "setuptools.build_meta"
 # importable package (still `import ragbench`) or the CLI command (still
 # `ragbench run`/`ragbench compare`/...) - only what you `pip install`.
 name = "ragbenchpy"
-version = "0.1.0"
+version = "0.1.1"
 description = "Benchmark chunking and retrieval strategies on your own data: compare cost, latency, and accuracy across chunker x retriever combinations."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -81,6 +81,14 @@ ragbench = "ragbench.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["ragbench*"]
+
+[tool.setuptools.package-data]
+# runtime-loaded prompt templates (llm/openai_client.py etc. read these via
+# Path(__file__).parent / "prompts" at call time) - setuptools does NOT
+# include non-.py files automatically, so without this they're silently
+# dropped from built wheels (editable installs during dev never hit this,
+# since those point straight at the live source tree)
+"ragbench.llm" = ["prompts/*.txt"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

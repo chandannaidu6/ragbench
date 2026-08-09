@@ -38,7 +38,7 @@ from ragbench.schema import Chunk, Query, RetrievedChunk, Usage, RetrievalResult
 from ragbench.config import RunConfig, MatrixConfig
 from ragbench.api import run, compare
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 __all__ = [
     "Chunk", "Query", "RetrievedChunk", "Usage", "RetrievalResult", "EvaluationMetrics",
