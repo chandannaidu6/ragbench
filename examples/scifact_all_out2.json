@@ -1,0 +1,150 @@
+[
+  {
+    "chunker_name": "recursive",
+    "retriever_name": "bm25",
+    "reranked": false,
+    "benchmark_type": "real",
+    "num_queries": 300,
+    "num_chunks": 5183,
+    "index_build_ms": 1103.1743999992614,
+    "accuracy": {
+      "hit_at_k": 0.8666666666666667,
+      "hit_rate_at_k": 0.8,
+      "precision_at_k": 0.08666666666666667,
+      "recall_at_k": 0.781611111111111,
+      "mrr": 0.6337208994708995,
+      "ndcg_at_k": 0.6643898053153052
+    },
+    "latency": {
+      "count": 300.0,
+      "mean": 2.1069296664306116,
+      "p50": 1.669899997068569,
+      "p95": 5.010100001527462,
+      "p99": 7.459999993443489,
+      "min": 0.4680999991251156,
+      "max": 9.531099996820558,
+      "total": 632.0788999291835
+    },
+    "cost": {
+      "total_cost": 0.0,
+      "cost_per_query": 0.0,
+      "cost_per_1k_tokens": 0.0,
+      "total_tokens": 0.0,
+      "num_queries": 300.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  },
+  {
+    "chunker_name": "recursive",
+    "retriever_name": "dense",
+    "reranked": false,
+    "benchmark_type": "real",
+    "num_queries": 300,
+    "num_chunks": 5183,
+    "index_build_ms": 292692.2788000011,
+    "accuracy": {
+      "hit_at_k": 0.88,
+      "hit_rate_at_k": 0.79,
+      "precision_at_k": 0.08800000000000001,
+      "recall_at_k": 0.78,
+      "mrr": 0.6013915343915344,
+      "ndcg_at_k": 0.6417483188122443
+    },
+    "latency": {
+      "count": 300.0,
+      "mean": 17.46846633364233,
+      "p50": 16.376899999158923,
+      "p95": 21.592199998849537,
+      "p99": 25.578100001439452,
+      "min": 12.139200000092387,
+      "max": 207.22629999363562,
+      "total": 5240.539900092699
+    },
+    "cost": {
+      "total_cost": 0.0,
+      "cost_per_query": 0.0,
+      "cost_per_1k_tokens": 0.0,
+      "total_tokens": 6853.0,
+      "num_queries": 300.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  },
+  {
+    "chunker_name": "recursive",
+    "retriever_name": "hybrid",
+    "reranked": false,
+    "benchmark_type": "real",
+    "num_queries": 300,
+    "num_chunks": 5183,
+    "index_build_ms": 1450.38769999519,
+    "accuracy": {
+      "hit_at_k": 0.9166666666666666,
+      "hit_rate_at_k": 0.8366666666666667,
+      "precision_at_k": 0.09166666666666666,
+      "recall_at_k": 0.8215555555555556,
+      "mrr": 0.644973544973545,
+      "ndcg_at_k": 0.6856723852273333
+    },
+    "latency": {
+      "count": 300.0,
+      "mean": 30.932373666776886,
+      "p50": 30.318700002681,
+      "p95": 38.04139999556355,
+      "p99": 44.67030000523664,
+      "min": 20.603299999493174,
+      "max": 74.25950000470039,
+      "total": 9279.712100033066
+    },
+    "cost": {
+      "total_cost": 0.0,
+      "cost_per_query": 0.0,
+      "cost_per_1k_tokens": 0.0,
+      "total_tokens": 6853.0,
+      "num_queries": 300.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  },
+  {
+    "chunker_name": "recursive",
+    "retriever_name": "hyde",
+    "reranked": false,
+    "benchmark_type": "real",
+    "num_queries": 300,
+    "num_chunks": 5183,
+    "index_build_ms": 326469.8941999959,
+    "accuracy": {
+      "hit_at_k": 0.95,
+      "hit_rate_at_k": 0.8566666666666667,
+      "precision_at_k": 0.095,
+      "recall_at_k": 0.8461666666666666,
+      "mrr": 0.6484166666666666,
+      "ndcg_at_k": 0.6928679550785175
+    },
+    "latency": {
+      "count": 300.0,
+      "mean": 3772.6871230000443,
+      "p50": 2324.2470000041067,
+      "p95": 14182.455199996184,
+      "p99": 25731.322999999975,
+      "min": 1337.6447000046028,
+      "max": 28808.989299999666,
+      "total": 1131806.1369000133
+    },
+    "cost": {
+      "total_cost": 0.0563712,
+      "cost_per_query": 0.00018790400000000002,
+      "cost_per_1k_tokens": 0.0006818986790535636,
+      "total_tokens": 82668.0,
+      "num_queries": 300.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  }
+]

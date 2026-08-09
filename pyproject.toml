@@ -3,14 +3,20 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ragbench"
+# PyPI distribution name only - "ragbench" itself collides with an existing
+# unrelated project ("rag-bench") under PyPI's name-similarity rules
+# (hyphens/underscores/case are normalized away, so "ragbench"/"rag-bench"/
+# "rag_bench" all count as the same name). This does NOT affect the
+# importable package (still `import ragbench`) or the CLI command (still
+# `ragbench run`/`ragbench compare`/...) - only what you `pip install`.
+name = "ragbenchpy"
 version = "0.1.0"
 description = "Benchmark chunking and retrieval strategies on your own data: compare cost, latency, and accuracy across chunker x retriever combinations."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
-    { name = "Your Name", email = "you@example.com" }
+    { name = "chandannaidu6" }
 ]
 keywords = ["rag", "retrieval", "chunking", "benchmark", "llm", "evaluation"]
 classifiers = [

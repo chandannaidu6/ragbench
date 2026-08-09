@@ -21,8 +21,10 @@ If you only have Anaconda installed: install Python from [python.org](https://ww
 ## Install
 
 ```bash
-pip install ragbench
+pip install ragbenchpy
 ```
+
+> The PyPI distribution is named `ragbenchpy` (the plain `ragbench` name collides with an unrelated existing project) — but the Python package you import and the CLI command are both still just `ragbench`, unaffected by this.
 
 Optional extras:
 
@@ -36,7 +38,7 @@ Optional extras:
 | `all` | every extra above | |
 
 ```bash
-pip install "ragbench[huggingface,rerank]"
+pip install "ragbenchpy[huggingface,rerank]"
 ```
 
 `openai`, `anthropic`, `google-genai`, and `chromadb` are **core** dependencies (not extras), every retriever except `bm25` needs a vector store, and the point of the tool is comparing providers, so gating them behind extras would defeat the purpose.
@@ -150,7 +152,7 @@ For every chunker × retriever combination, one `RunResult` with:
 
 ## System design
 
-![ragbench system design](docs/architecture.svg)
+![ragbench system design](https://raw.githubusercontent.com/chandannaidu6/ragbench/main/docs/architecture.svg)
 
 Both entry points (CLI and Python API) build the same `RunConfig`/`MatrixConfig`, which is handed to a subprocess (`evaluation._isolated_worker`) as JSON over stdin. That subprocess boundary exists specifically because a segfault in a native dependency (`chromadb`, `torch`, `onnxruntime`) cannot be caught by Python's `try`/`except` — the OS kills the process before any exception machinery runs. Isolating each chunker × retriever combination in its own subprocess means one bad combination becomes an ordinary `failed=True` result instead of losing an entire matrix sweep.
 
@@ -273,4 +275,4 @@ Omit `benchmark_queries_path`/`benchmark_qrels_path` entirely and `ragbench` gen
 
 ## License
 
-MIT see [LICENSE](LICENSE).
+MIT see [LICENSE](https://github.com/chandannaidu6/ragbench/blob/main/LICENSE).
