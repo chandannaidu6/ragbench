@@ -153,7 +153,6 @@ Both entry points (CLI and Python API) build the same `RunConfig`/`MatrixConfig`
 
 Inside the subprocess: the corpus is loaded and chunked, the embedder and LLM client are resolved through a provider factory (so retrievers never import a concrete provider directly), the retriever runs its per-query loop, and metrics are aggregated into a `RunResult` that's written back to the parent over stdout.
 
-
 ---
 
 ## Chunkers
