@@ -1,0 +1,7 @@
+Write a short, factual passage that would answer the following question.
+Do not say you are unsure; write it as if it were from a reference document.
+
+Question:
+{query}
+
+Passage:

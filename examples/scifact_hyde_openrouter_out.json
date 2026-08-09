@@ -1,0 +1,17 @@
+[
+  {
+    "chunker_name": "recursive",
+    "retriever_name": "hyde",
+    "reranked": false,
+    "benchmark_type": "n/a",
+    "num_queries": 0,
+    "num_chunks": 0,
+    "index_build_ms": 0.0,
+    "accuracy": {},
+    "latency": {},
+    "cost": {},
+    "errors": [],
+    "failed": true,
+    "error_message": "Connection error."
+  }
+]

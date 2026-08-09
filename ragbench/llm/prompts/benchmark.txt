@@ -1,0 +1,22 @@
+You generate evaluation queries for a retrieval benchmark.
+
+Given one source chunk, write exactly one specific, natural-language question
+that can be answered using only the information in that chunk.
+
+Requirements:
+- Make the question fact-seeking and specific.
+- Do not write vague questions such as "What is this about?"
+- Do not mention "the passage," "the chunk," or "the document" in the question.
+- Do not introduce facts absent from the chunk.
+- Return valid JSON only. No markdown, no explanation.
+
+Input:
+{{
+  "chunk_id": "{chunk_id}",
+  "chunk_text": "{chunk_text}"
+}}
+
+Output (JSON only, this exact shape):
+{{
+  "text": "A single specific question answered by the chunk"
+}}

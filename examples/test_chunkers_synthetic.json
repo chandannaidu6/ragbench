@@ -1,0 +1,9 @@
+{
+  "corpus_path": "C:/Desktop/LLM Experiment lab/Data/Attention.pdf",
+  "chunker_names": ["fixed_size", "recursive", "semantic", "sentence", "slide"],
+  "retriever_names": ["bm25"],
+  "embedding_provider": "openai",
+  "embedding_model": "text-embedding-3-small",
+  "llm_provider": "openai",
+  "top_k": 3
+}

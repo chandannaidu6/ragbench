@@ -1,0 +1,17 @@
+[
+  {
+    "chunker_name": "recursive",
+    "retriever_name": "hyde",
+    "reranked": false,
+    "benchmark_type": "n/a",
+    "num_queries": 0,
+    "num_chunks": 0,
+    "index_build_ms": 0.0,
+    "accuracy": {},
+    "latency": {},
+    "cost": {},
+    "errors": [],
+    "failed": true,
+    "error_message": "Could not reach Ollama at http://localhost:11434 - is `ollama serve` running and is model 'nomic-embed-text' pulled? Also check it didn't crash/OOM mid-request if this happened partway through a large batch. (HTTP Error 404: Not Found)"
+  }
+]

@@ -1,0 +1,10 @@
+Answer the question using only the provided context.
+If the context is insufficient, say so clearly and do not invent facts.
+
+Context:
+{context}
+
+Question:
+{query}
+
+Answer:

@@ -1,0 +1,6 @@
+{
+  "corpus_path": "C:/Desktop/data",
+  "chunker_name": "recursive",
+  "retriever_name": "bm25",
+  "top_k": 3
+}

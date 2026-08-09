@@ -1,0 +1,12 @@
+{
+  "corpus_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/chunks.json",
+  "benchmark_queries_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/questions.json",
+  "benchmark_qrels_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/qrels.json",
+  "chunker_names": ["recursive"],
+  "retriever_names": ["dense"],
+  "embedding_provider": "openai",
+  "embedding_model": "text-embedding-3-small",
+  "llm_provider": "openai",
+  "llm_model": "gpt-4.1-mini",
+  "top_k": 10
+}

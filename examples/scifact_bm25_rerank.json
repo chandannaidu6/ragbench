@@ -1,0 +1,9 @@
+{
+  "corpus_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/chunks.json",
+  "benchmark_queries_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/questions.json",
+  "benchmark_qrels_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/qrels.json",
+  "chunker_name": "recursive",
+  "retriever_name": "bm25",
+  "top_k": 10,
+  "use_reranker": true
+}

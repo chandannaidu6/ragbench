@@ -1,0 +1,35 @@
+# Virtual environments
+.venv/
+.venv-test/
+venv/
+env/
+
+# Python build/packaging artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Test/cache artifacts
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# Secrets - never commit real API keys
+.env
+.env.*
+!.env.example
+
+# Local chromadb stores (persistent-mode vector data, regenerated per run;
+# includes throwaway dirs from local crash/segfault debugging)
+chroma_*/
+*.chroma/
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

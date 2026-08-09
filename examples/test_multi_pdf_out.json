@@ -1,0 +1,39 @@
+[
+  {
+    "chunker_name": "recursive",
+    "retriever_name": "bm25",
+    "reranked": false,
+    "benchmark_type": "synthetic",
+    "num_queries": 40,
+    "num_chunks": 74,
+    "index_build_ms": 13.95090000005439,
+    "accuracy": {
+      "hit_at_k": 1.0,
+      "hit_rate_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0
+    },
+    "latency": {
+      "count": 40.0,
+      "mean": 0.33377000036125537,
+      "p50": 0.1813000053516589,
+      "p95": 0.294400000711903,
+      "p99": 6.250500002352055,
+      "min": 0.1053000014508143,
+      "max": 6.250500002352055,
+      "total": 13.350800014450215
+    },
+    "cost": {
+      "total_cost": 0.0,
+      "cost_per_query": 0.0,
+      "cost_per_1k_tokens": 0.0,
+      "total_tokens": 0.0,
+      "num_queries": 40.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  }
+]

@@ -1,0 +1,187 @@
+[
+  {
+    "chunker_name": "fixed_size",
+    "retriever_name": "bm25",
+    "reranked": false,
+    "benchmark_type": "synthetic",
+    "num_queries": 30,
+    "num_chunks": 30,
+    "index_build_ms": 17.575800000486197,
+    "accuracy": {
+      "hit_at_k": 1.0,
+      "hit_rate_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0
+    },
+    "latency": {
+      "count": 30.0,
+      "mean": 0.5460766670391118,
+      "p50": 0.2607000023999717,
+      "p95": 0.6150000008346979,
+      "p99": 8.31079999989015,
+      "min": 0.10269999984302558,
+      "max": 8.31079999989015,
+      "total": 16.382300011173356
+    },
+    "cost": {
+      "total_cost": 0.0,
+      "cost_per_query": 0.0,
+      "cost_per_1k_tokens": 0.0,
+      "total_tokens": 0.0,
+      "num_queries": 30.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  },
+  {
+    "chunker_name": "recursive",
+    "retriever_name": "bm25",
+    "reranked": false,
+    "benchmark_type": "synthetic",
+    "num_queries": 40,
+    "num_chunks": 48,
+    "index_build_ms": 18.077500000799773,
+    "accuracy": {
+      "hit_at_k": 1.0,
+      "hit_rate_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0
+    },
+    "latency": {
+      "count": 40.0,
+      "mean": 0.5877475001398125,
+      "p50": 0.5159000029379968,
+      "p95": 1.2112000003980938,
+      "p99": 1.500900001701666,
+      "min": 0.26979999893228523,
+      "max": 1.500900001701666,
+      "total": 23.5099000055925
+    },
+    "cost": {
+      "total_cost": 0.0,
+      "cost_per_query": 0.0,
+      "cost_per_1k_tokens": 0.0,
+      "total_tokens": 0.0,
+      "num_queries": 40.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  },
+  {
+    "chunker_name": "semantic",
+    "retriever_name": "bm25",
+    "reranked": false,
+    "benchmark_type": "synthetic",
+    "num_queries": 40,
+    "num_chunks": 127,
+    "index_build_ms": 10.035700001026271,
+    "accuracy": {
+      "hit_at_k": 1.0,
+      "hit_rate_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0
+    },
+    "latency": {
+      "count": 40.0,
+      "mean": 0.34413750045132474,
+      "p50": 0.3175000019837171,
+      "p95": 0.6500000017695129,
+      "p99": 1.3437999987218063,
+      "min": 0.1095000006898772,
+      "max": 1.3437999987218063,
+      "total": 13.76550001805299
+    },
+    "cost": {
+      "total_cost": 0.0,
+      "cost_per_query": 0.0,
+      "cost_per_1k_tokens": 0.0,
+      "total_tokens": 0.0,
+      "num_queries": 40.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  },
+  {
+    "chunker_name": "sentence",
+    "retriever_name": "bm25",
+    "reranked": false,
+    "benchmark_type": "synthetic",
+    "num_queries": 16,
+    "num_chunks": 16,
+    "index_build_ms": 10.600300000078278,
+    "accuracy": {
+      "hit_at_k": 1.0,
+      "hit_rate_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0
+    },
+    "latency": {
+      "count": 16.0,
+      "mean": 0.3797562496856699,
+      "p50": 0.24789999952190556,
+      "p95": 2.3866000010457356,
+      "p99": 2.3866000010457356,
+      "min": 0.17220000154338777,
+      "max": 2.3866000010457356,
+      "total": 6.076099994970718
+    },
+    "cost": {
+      "total_cost": 0.0,
+      "cost_per_query": 0.0,
+      "cost_per_1k_tokens": 0.0,
+      "total_tokens": 0.0,
+      "num_queries": 16.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  },
+  {
+    "chunker_name": "slide",
+    "retriever_name": "bm25",
+    "reranked": false,
+    "benchmark_type": "synthetic",
+    "num_queries": 40,
+    "num_chunks": 96,
+    "index_build_ms": 16.19360000040615,
+    "accuracy": {
+      "hit_at_k": 1.0,
+      "hit_rate_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0
+    },
+    "latency": {
+      "count": 40.0,
+      "mean": 0.195984999936627,
+      "p50": 0.183599997399142,
+      "p95": 0.2932999996119179,
+      "p99": 0.34780000351020135,
+      "min": 0.10240000119665638,
+      "max": 0.34780000351020135,
+      "total": 7.83939999746508
+    },
+    "cost": {
+      "total_cost": 0.0,
+      "cost_per_query": 0.0,
+      "cost_per_1k_tokens": 0.0,
+      "total_tokens": 0.0,
+      "num_queries": 40.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  }
+]

@@ -1,0 +1,2 @@
+chunker,retriever,status,recall_at_k,mrr,p95_ms,cost_usd,benchmark_type,error
+recursive,bm25,ok,0.7816111111111111,0.6337208994708994,14.834699919447303,0.0,real,

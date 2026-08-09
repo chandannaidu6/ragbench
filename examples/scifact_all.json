@@ -1,0 +1,12 @@
+{
+"corpus_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/chunks.json",
+  "benchmark_queries_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/questions.json",
+  "benchmark_qrels_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/qrels.json",
+  "chunker_names": ["recursive"],
+  "retriever_names": ["bm25", "dense", "hybrid", "hyde"],
+  "embedding_provider": "ollama",
+  "embedding_model": "nomic-embed-text",
+  "llm_provider": "ollama",
+  "llm_model": "llama3.2",
+  "top_k": 10
+}

@@ -1,0 +1,39 @@
+[
+  {
+    "chunker_name": "recursive",
+    "retriever_name": "dense",
+    "reranked": false,
+    "benchmark_type": "real",
+    "num_queries": 300,
+    "num_chunks": 5183,
+    "index_build_ms": 74020.82900000096,
+    "accuracy": {
+      "hit_at_k": 0.9733333333333334,
+      "hit_rate_at_k": 0.8633333333333333,
+      "precision_at_k": 0.09733333333333334,
+      "recall_at_k": 0.8548888888888888,
+      "mrr": 0.6902896825396825,
+      "ndcg_at_k": 0.7241541806361655
+    },
+    "latency": {
+      "count": 300.0,
+      "mean": 237.53590233334762,
+      "p50": 206.1292999987927,
+      "p95": 377.5509000006423,
+      "p99": 755.8618000002753,
+      "min": 142.89389999976265,
+      "max": 1662.6513999999588,
+      "total": 71260.77070000429
+    },
+    "cost": {
+      "total_cost": 0.00011796,
+      "cost_per_query": 3.932e-07,
+      "cost_per_1k_tokens": 2e-05,
+      "total_tokens": 5898.0,
+      "num_queries": 300.0
+    },
+    "errors": [],
+    "failed": false,
+    "error_message": null
+  }
+]

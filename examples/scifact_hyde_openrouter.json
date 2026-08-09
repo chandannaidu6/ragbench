@@ -1,0 +1,12 @@
+{
+  "corpus_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/chunks.json",
+  "benchmark_queries_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/questions.json",
+  "benchmark_qrels_path": "C:/Desktop/LLM Experiment lab/Data/beir_scifact/qrels.json",
+  "chunker_name": "recursive",
+  "retriever_name": "hyde",
+  "top_k": 5,
+  "embedding_provider": "openai",
+  "embedding_model": "text-embedding-3-small",
+  "llm_provider": "openai",
+  "llm_model": "meta-llama/llama-3.3-70b-instruct:free"
+}

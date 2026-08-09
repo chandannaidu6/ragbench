@@ -1,0 +1,7 @@
+Write a detailed, multi-paragraph passage that would thoroughly answer the
+following question, as if excerpted from an authoritative reference document.
+
+Question:
+{query}
+
+Passage:

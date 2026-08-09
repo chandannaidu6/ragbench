@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ragbench"
+version = "0.1.0"
+description = "Benchmark chunking and retrieval strategies on your own data: compare cost, latency, and accuracy across chunker x retriever combinations."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+keywords = ["rag", "retrieval", "chunking", "benchmark", "llm", "evaluation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries",
+]
+
+# Version floors below are set to versions actually verified working
+# together (installed, imported, and exercised through real benchmark runs
+# - including chromadb's upsert path, which previously segfaulted on old
+# native-dependency builds) - not just bumped blindly. If you hit install
+# issues, also see the README note on avoiding Anaconda's Python distribution;
+# that caused native-library (torch/onnxruntime/chromadb) crashes that no
+# amount of package pinning fixes, since the problem was the interpreter
+# build itself, not any one dependency version.
+dependencies = [
+    "pydantic>=2.13",
+    "numpy>=2.5",
+    "pymupdf>=1.28",
+    "rich>=15.0",
+    "tiktoken>=0.13",
+    "openai>=2.53",
+    "anthropic>=0.121",
+    "google-genai>=2.17",
+    # dense/hybrid/hyde - i.e. every retriever except bm25 - need a
+    # vector store, so chromadb is core, not optional
+    "chromadb>=1.5.9",
+    # auto-loads a .env file on `import ragbench` so library users (not just
+    # CLI users) get their API keys without manually exporting env vars
+    "python-dotenv>=1.2",
+]
+
+[project.optional-dependencies]
+yaml = ["pyyaml>=6.0"]
+mlflow = ["mlflow>=2.10"]
+# Free, local embedding provider (sentence-transformers). Ollama needs no
+# extra - llm/ollama_client.py and embeddings/ollama_embedder.py only use
+# the standard library and talk to a locally-running `ollama serve`.
+huggingface = ["sentence-transformers>=5.7", "transformers>=5.14"]
+rerank = ["sentence-transformers>=5.7"]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+all = ["ragbench[yaml,mlflow,huggingface,rerank,dev]"]
+
+[project.urls]
+Homepage = "https://github.com/chandannaidu6/ragbench"
+Repository = "https://github.com/chandannaidu6/ragbench"
+Issues = "https://github.com/chandannaidu6/ragbench/issues"
+
+[project.scripts]
+ragbench = "ragbench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ragbench*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

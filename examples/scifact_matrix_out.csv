@@ -1,0 +1,4 @@
+chunker,retriever,status,recall_at_k,mrr,p95_ms,cost_usd,benchmark_type,error
+recursive,bm25,ok,0.7192777777777777,0.6248333333333332,10.490100015886128,0.0,real,
+recursive,dense,FAILED,,,,,n/a,"[WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading ""C:\Desktop\ragbench_package\ragbench_pkg\.venv\Lib\site-packages\torch\lib\c10.dll"" or one of its dependencies."
+recursive,hybrid,FAILED,,,,,n/a,"[WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading ""C:\Desktop\ragbench_package\ragbench_pkg\.venv\Lib\site-packages\torch\lib\c10.dll"" or one of its dependencies."
