@@ -10,9 +10,9 @@ Benchmark chunking and retrieval strategies on your own data: compare **accuracy
 
 ## ⚠️ Before you install
 
-**Use a venv built from a standard Python (python.org, or your OS's `python3`) — not one whose base interpreter is Anaconda or Miniconda.**
+**Use a venv built from a standard Python (python.org, or your OS's `python3`)  not one whose base interpreter is Anaconda or Miniconda.**
 
-`ragbench` depends on packages with native/compiled components (`chromadb`, `torch` via the optional `huggingface`/`rerank` extras, `onnxruntime`). On an Anaconda-based Python these can fail to import, or crash outright — including hard segfaults during `chromadb` operations — because of how Anaconda bundles its own native libraries alongside them. Symptoms look like `ImportError: DLL load failed` or the process just dying with no traceback, no matter what package versions you install.
+`ragbench` depends on packages with native/compiled components (`chromadb`, `torch` via the optional `huggingface`/`rerank` extras, `onnxruntime`). On an Anaconda-based Python these can fail to import, or crash outright including hard segfaults during `chromadb` operations, because of how Anaconda bundles its own native libraries alongside them. Symptoms look like `ImportError: DLL load failed` or the process just dying with no traceback, no matter what package versions you install.
 
 If you only have Anaconda installed: install Python from [python.org](https://www.python.org/) first, then create your venv from *that* interpreter specifically (`path\to\pythoncore\python.exe -m venv .venv`, not the `conda`/Anaconda one).
 
