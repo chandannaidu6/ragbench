@@ -79,7 +79,7 @@ A `matrix.json` (sweeps every combination) uses `chunker_names`/`retriever_names
 }
 ```
 
-> ⚠️ These two shapes are easy to mix up — pointing `ragbench compare` at a singular-field config (or `ragbench run` at a plural one) fails with a clear pydantic "Field required" error, not a silent misconfiguration. If you see that error, check you're using the right shape for the command.
+> ⚠️ These two shapes are easy to mix up, pointing `ragbench compare` at a singular-field config (or `ragbench run` at a plural one) fails with a clear pydantic "Field required" error, not a silent misconfiguration. If you see that error, check you're using the right shape for the command.
 
 ---
 
