@@ -228,7 +228,7 @@ export OPENAI_BASE_URL=https://openrouter.ai/api/v1
 
 ## Reranking
 
-Any retriever can be wrapped with a cross-encoder reranker — it composes with all of `bm25`/`dense`/`hybrid`/`hyde` without any of them knowing reranking exists:
+Any retriever can be wrapped with a cross-encoder reranker, it composes with all of `bm25`/`dense`/`hybrid`/`hyde` without any of them knowing reranking exists:
 
 ```json
 {
@@ -239,7 +239,7 @@ Any retriever can be wrapped with a cross-encoder reranker — it composes with 
 }
 ```
 
-`rerank_candidate_k` defaults to `top_k * 4` when `null` — the retriever over-fetches that many candidates, then reranks down to `top_k`. Needs the `rerank` extra (`sentence-transformers`).
+`rerank_candidate_k` defaults to `top_k * 4` when `null`, the retriever over-fetches that many candidates, then reranks down to `top_k`. Needs the `rerank` extra (`sentence-transformers`).
 
 ---
 
@@ -256,7 +256,7 @@ Omit `benchmark_queries_path`/`benchmark_qrels_path` entirely and `ragbench` gen
 }
 ```
 
-> ⚠️ Synthetic question quality is entirely dependent on the generating LLM — there's no ground truth, so treat synthetic-benchmark accuracy numbers as directional (useful for A/B'ing chunkers/retrievers against each other), not as an absolute accuracy claim.
+> ⚠️ Synthetic question quality is entirely dependent on the generating LLM, there's no ground truth, so treat synthetic-benchmark accuracy numbers as directional (useful for A/B'ing chunkers/retrievers against each other), not as an absolute accuracy claim.
 
 ---
 
@@ -265,10 +265,9 @@ Omit `benchmark_queries_path`/`benchmark_qrels_path` entirely and `ragbench` gen
 - **No automated test suite yet** (`pytest`/`pytest-cov` are in the `dev` extra, but `tests/` is currently just a placeholder package). Everything in this package has been exercised through real, manual benchmark runs against real provider APIs rather than unit tests — solid for correctness-in-practice, but there's no CI regression safety net yet. Worth adding before accepting outside contributions.
 - Crash isolation (subprocess-per-combination) has been verified against a real forced segfault, not just reasoned about.
 
-> 📸 **Optional — add a screenshot here** of a passing test run, once a test suite exists.
 
 ---
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT see [LICENSE](LICENSE).
