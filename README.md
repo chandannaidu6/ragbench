@@ -1,8 +1,8 @@
-# ragbench
+# Ragbench
 
 Benchmark chunking and retrieval strategies on your own data: compare **accuracy**, **latency**, and **cost** across every chunker × retriever combination, against real or LLM-generated questions.
 
-> 📸 **Add a screenshot here:** the terminal output of `ragbench compare --config examples/scifact_all.json` (the Rich comparison table). This is the first thing most people want to see — put it right under the title.
+<img width="1433" height="252" alt="image" src="https://github.com/user-attachments/assets/c30c1abb-fcb0-4d0c-846e-41854ed58e7f" />
 
 ---
 
