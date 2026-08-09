@@ -1,16 +1,18 @@
-# ragbench
+# Ragbench
 
 Benchmark chunking and retrieval strategies on your own data: compare **accuracy**, **latency**, and **cost** across every chunker × retriever combination, against real or LLM-generated questions.
 
-> 📸 **Add a screenshot here:** the terminal output of `ragbench compare --config examples/scifact_all.json` (the Rich comparison table). This is the first thing most people want to see — put it right under the title.
+**CLI command:ragbench compare --config examples\scifact_all.json**
+
+<img width="1433" height="252" alt="image" src="https://github.com/user-attachments/assets/c30c1abb-fcb0-4d0c-846e-41854ed58e7f" />
 
 ---
 
 ## ⚠️ Before you install
 
-**Use a venv built from a standard Python (python.org, or your OS's `python3`) — not one whose base interpreter is Anaconda or Miniconda.**
+**Use a venv built from a standard Python (python.org, or your OS's `python3`)  not one whose base interpreter is Anaconda or Miniconda.**
 
-`ragbench` depends on packages with native/compiled components (`chromadb`, `torch` via the optional `huggingface`/`rerank` extras, `onnxruntime`). On an Anaconda-based Python these can fail to import, or crash outright — including hard segfaults during `chromadb` operations — because of how Anaconda bundles its own native libraries alongside them. Symptoms look like `ImportError: DLL load failed` or the process just dying with no traceback, no matter what package versions you install.
+`ragbench` depends on packages with native/compiled components (`chromadb`, `torch` via the optional `huggingface`/`rerank` extras, `onnxruntime`). On an Anaconda-based Python these can fail to import, or crash outright including hard segfaults during `chromadb` operations, because of how Anaconda bundles its own native libraries alongside them. Symptoms look like `ImportError: DLL load failed` or the process just dying with no traceback, no matter what package versions you install.
 
 If you only have Anaconda installed: install Python from [python.org](https://www.python.org/) first, then create your venv from *that* interpreter specifically (`path\to\pythoncore\python.exe -m venv .venv`, not the `conda`/Anaconda one).
 
@@ -26,8 +28,8 @@ Optional extras:
 
 | Extra | Adds | Why it's optional |
 |---|---|---|
-| `huggingface` | `sentence-transformers`, `transformers` | Local/free embeddings — heavy (`torch`), so opt-in |
-| `rerank` | `sentence-transformers` | Cross-encoder reranking — same `torch` dependency |
+| `huggingface` | `sentence-transformers`, `transformers` | Local/free embeddings heavy (`torch`), so opt-in |
+| `rerank` | `sentence-transformers` | Cross-encoder reranking same `torch` dependency |
 | `yaml` | `pyyaml` | Lets config files be `.yaml`/`.yml`, not just `.json` |
 | `mlflow` | `mlflow` | Optional tracing on LLM calls, no-ops cleanly if unset |
 | `dev` | `pytest`, `pytest-cov` | Only needed if you're developing `ragbench` itself |
@@ -37,7 +39,7 @@ Optional extras:
 pip install "ragbench[huggingface,rerank]"
 ```
 
-`openai`, `anthropic`, `google-genai`, and `chromadb` are **core** dependencies (not extras) — every retriever except `bm25` needs a vector store, and the point of the tool is comparing providers, so gating them behind extras would defeat the purpose.
+`openai`, `anthropic`, `google-genai`, and `chromadb` are **core** dependencies (not extras), every retriever except `bm25` needs a vector store, and the point of the tool is comparing providers, so gating them behind extras would defeat the purpose.
 
 ---
 
@@ -77,7 +79,7 @@ A `matrix.json` (sweeps every combination) uses `chunker_names`/`retriever_names
 }
 ```
 
-> ⚠️ These two shapes are easy to mix up — pointing `ragbench compare` at a singular-field config (or `ragbench run` at a plural one) fails with a clear pydantic "Field required" error, not a silent misconfiguration. If you see that error, check you're using the right shape for the command.
+> ⚠️ These two shapes are easy to mix up, pointing `ragbench compare` at a singular-field config (or `ragbench run` at a plural one) fails with a clear pydantic "Field required" error, not a silent misconfiguration. If you see that error, check you're using the right shape for the command.
 
 ---
 
@@ -126,7 +128,6 @@ result = ragbench.run(..., llm_api_key="sk-ant-...",            # or set them in
                             embedding_api_key="sk-...")          # LLM and embedder use different providers
 ```
 
-> ⚠️ Never commit a `.env` file or hardcode a key into a config file that goes in version control — `.gitignore` in this repo already excludes `.env`.
 
 ---
 
@@ -140,7 +141,10 @@ For every chunker × retriever combination, one `RunResult` with:
 - **errors** — per-query error messages that didn't fail the whole run
 - **failed** / **error_message** — set if the whole combination couldn't run at all (bad config, index build failure, crash)
 
-> 📸 **Add a screenshot here:** `ragbench detail --config run.json --chunker recursive --retriever hyde` output, showing the full per-combination metric breakdown.
+> `ragbench detail --config run.json --chunker recursive --retriever hyde` output, showing the full per-combination metric breakdown.
+
+<img width="595" height="816" alt="image" src="https://github.com/user-attachments/assets/cf7b1a54-2132-411a-a268-6201525b20bd" />
+
 
 ---
 
@@ -151,8 +155,6 @@ For every chunker × retriever combination, one `RunResult` with:
 Both entry points (CLI and Python API) build the same `RunConfig`/`MatrixConfig`, which is handed to a subprocess (`evaluation._isolated_worker`) as JSON over stdin. That subprocess boundary exists specifically because a segfault in a native dependency (`chromadb`, `torch`, `onnxruntime`) cannot be caught by Python's `try`/`except` — the OS kills the process before any exception machinery runs. Isolating each chunker × retriever combination in its own subprocess means one bad combination becomes an ordinary `failed=True` result instead of losing an entire matrix sweep.
 
 Inside the subprocess: the corpus is loaded and chunked, the embedder and LLM client are resolved through a provider factory (so retrievers never import a concrete provider directly), the retriever runs its per-query loop, and metrics are aggregated into a `RunResult` that's written back to the parent over stdout.
-
-> 📸 **Optional — add a screenshot here** if you want to show real timing: `tasklist`/`ps aux` output during a `compare` run, showing the isolated worker as a separate process.
 
 ---
 
@@ -186,7 +188,7 @@ Corpus input can be:
 | `hybrid` | Yes | No | Combines `bm25` + `dense` |
 | `hyde` | Yes | Yes | Generates a hypothetical answer with the LLM first, then embeds *that* for retrieval |
 
-> **Note:** an earlier `self_rag` retriever (self-reflective grading + retry + answer generation) was removed — it was correct but inherently slow (up to 4 LLM calls per query), which made it impractical for routine comparison runs.
+
 
 ---
 
@@ -214,7 +216,6 @@ export OPENAI_BASE_URL=https://openrouter.ai/api/v1
 
 > ⚠️ **Free-tier models are volatile.** Model IDs get deprecated for new accounts, rate-limited, or renamed without much notice (this happened mid-development with a Gemini model). If a request 404s or connection-errors unexpectedly, check the provider's live model list before assuming it's a `ragbench` bug — for OpenRouter: `GET https://openrouter.ai/api/v1/models`; for Google: `client.models.list()`.
 
-> ⚠️ **Anthropic has no true no-card free tier** — API access requires billing set up on the account (occasionally with a small free credit grant for new accounts). Google's Gemini API, by contrast, has a genuinely free tier via [Google AI Studio](https://aistudio.google.com) with no card required.
 
 ---
 
@@ -230,7 +231,7 @@ export OPENAI_BASE_URL=https://openrouter.ai/api/v1
 
 ## Reranking
 
-Any retriever can be wrapped with a cross-encoder reranker — it composes with all of `bm25`/`dense`/`hybrid`/`hyde` without any of them knowing reranking exists:
+Any retriever can be wrapped with a cross-encoder reranker, it composes with all of `bm25`/`dense`/`hybrid`/`hyde` without any of them knowing reranking exists:
 
 ```json
 {
@@ -241,7 +242,7 @@ Any retriever can be wrapped with a cross-encoder reranker — it composes with 
 }
 ```
 
-`rerank_candidate_k` defaults to `top_k * 4` when `null` — the retriever over-fetches that many candidates, then reranks down to `top_k`. Needs the `rerank` extra (`sentence-transformers`).
+`rerank_candidate_k` defaults to `top_k * 4` when `null`, the retriever over-fetches that many candidates, then reranks down to `top_k`. Needs the `rerank` extra (`sentence-transformers`).
 
 ---
 
@@ -258,7 +259,7 @@ Omit `benchmark_queries_path`/`benchmark_qrels_path` entirely and `ragbench` gen
 }
 ```
 
-> ⚠️ Synthetic question quality is entirely dependent on the generating LLM — there's no ground truth, so treat synthetic-benchmark accuracy numbers as directional (useful for A/B'ing chunkers/retrievers against each other), not as an absolute accuracy claim.
+> ⚠️ Synthetic question quality is entirely dependent on the generating LLM, there's no ground truth, so treat synthetic-benchmark accuracy numbers as directional (useful for A/B'ing chunkers/retrievers against each other), not as an absolute accuracy claim.
 
 ---
 
@@ -267,10 +268,9 @@ Omit `benchmark_queries_path`/`benchmark_qrels_path` entirely and `ragbench` gen
 - **No automated test suite yet** (`pytest`/`pytest-cov` are in the `dev` extra, but `tests/` is currently just a placeholder package). Everything in this package has been exercised through real, manual benchmark runs against real provider APIs rather than unit tests — solid for correctness-in-practice, but there's no CI regression safety net yet. Worth adding before accepting outside contributions.
 - Crash isolation (subprocess-per-combination) has been verified against a real forced segfault, not just reasoned about.
 
-> 📸 **Optional — add a screenshot here** of a passing test run, once a test suite exists.
 
 ---
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT see [LICENSE](LICENSE).
