@@ -185,7 +185,7 @@ Corpus input can be:
 | `hybrid` | Yes | No | Combines `bm25` + `dense` |
 | `hyde` | Yes | Yes | Generates a hypothetical answer with the LLM first, then embeds *that* for retrieval |
 
-> **Note:** an earlier `self_rag` retriever (self-reflective grading + retry + answer generation) was removed — it was correct but inherently slow (up to 4 LLM calls per query), which made it impractical for routine comparison runs.
+
 
 ---
 
@@ -213,7 +213,6 @@ export OPENAI_BASE_URL=https://openrouter.ai/api/v1
 
 > ⚠️ **Free-tier models are volatile.** Model IDs get deprecated for new accounts, rate-limited, or renamed without much notice (this happened mid-development with a Gemini model). If a request 404s or connection-errors unexpectedly, check the provider's live model list before assuming it's a `ragbench` bug — for OpenRouter: `GET https://openrouter.ai/api/v1/models`; for Google: `client.models.list()`.
 
-> ⚠️ **Anthropic has no true no-card free tier** — API access requires billing set up on the account (occasionally with a small free credit grant for new accounts). Google's Gemini API, by contrast, has a genuinely free tier via [Google AI Studio](https://aistudio.google.com) with no card required.
 
 ---
 
