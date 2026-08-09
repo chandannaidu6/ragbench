@@ -128,7 +128,6 @@ result = ragbench.run(..., llm_api_key="sk-ant-...",            # or set them in
                             embedding_api_key="sk-...")          # LLM and embedder use different providers
 ```
 
-> ⚠️ Never commit a `.env` file or hardcode a key into a config file that goes in version control — `.gitignore` in this repo already excludes `.env`.
 
 ---
 
