@@ -141,7 +141,10 @@ For every chunker × retriever combination, one `RunResult` with:
 - **errors** — per-query error messages that didn't fail the whole run
 - **failed** / **error_message** — set if the whole combination couldn't run at all (bad config, index build failure, crash)
 
-> 📸 **Add a screenshot here:** `ragbench detail --config run.json --chunker recursive --retriever hyde` output, showing the full per-combination metric breakdown.
+> `ragbench detail --config run.json --chunker recursive --retriever hyde` output, showing the full per-combination metric breakdown.
+
+<img width="595" height="816" alt="image" src="https://github.com/user-attachments/assets/cf7b1a54-2132-411a-a268-6201525b20bd" />
+
 
 ---
 
